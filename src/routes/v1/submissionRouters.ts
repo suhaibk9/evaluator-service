@@ -1,11 +1,11 @@
 import express from 'express';
 import { addSubmission } from '../../controllers/submissionController';
 import { createSubmissionZodSchema } from '../../dtos/CreateSubmissionDto';
-import { validateCreateSubmissionDto } from '../../validator/createSubmissionValidator';
+import { validate } from '../../validator/createSubmissionValidator';
 const submissionRouter = express.Router();
 submissionRouter.post(
   '/',
-  validateCreateSubmissionDto(createSubmissionZodSchema),
+  validate(createSubmissionZodSchema),
   addSubmission
 );
 export default submissionRouter;
